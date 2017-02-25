@@ -7,10 +7,6 @@ class Mycog:
         self.bot = bot
 
     @commands.command()
-    async def test(self):
-        await self.bot.say("Bot is up and running!")
-
-    @commands.command()
     async def punch(self, user : discord.Member):
         await self.bot.say("ONE PUNCH! And " + user.mention + " is out! ლ(ಠ益ಠლ)")
 
@@ -22,7 +18,7 @@ class Mycog:
                 id = user.id,
                 )
         if public_channel is not None:
-            yield from bot.send_message(public_channel, m)
+            yield from self.bot.say(public_channel, m)
 
     @asyncio.coroutine
     def help_message(user):
@@ -31,9 +27,9 @@ class Mycog:
                 mention_name = user.mention,
                 id = user.id,
                 )
-        yield from bot.send_message(user, m)
+        yield from self.bot.say(user, m)
 
-    @bot.listen
+    @self.bot.listen
     @asyncio.coroutine
     def on_member_join(member):
         server = member.server
