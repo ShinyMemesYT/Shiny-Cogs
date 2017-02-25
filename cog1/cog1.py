@@ -1,4 +1,5 @@
 import discord
+import asyncio
 from discord.ext import commands
 
 class Mycog:
@@ -12,6 +13,38 @@ class Mycog:
     @commands.command()
     async def punch(self, user : discord.Member):
         await self.bot.say("ONE PUNCH! And " + user.mention + " is out! ლ(ಠ益ಠლ)")
+
+    @asyncio.coroutine
+    def welcome(user):
+        m = config['welcome_message'].format(
+                name = user.name,
+                mention_name = user.mention,
+                id = user.id,
+                )
+        if public_channel is not None:
+            yield from bot.send_message(public_channel, m)
+
+    @asyncio.coroutine
+    def help_message(user):
+        m = config['help_message'].format(
+                name = user.name,
+                mention_name = user.mention,
+                id = user.id,
+                )
+        yield from bot.send_message(user, m)
+
+    @bot.listen
+    @asyncio.coroutine
+    def on_member_join(member):
+        server = member.server
+        if server.id != config['server']:
+            return
+
+        # debug!
+        print('{} [id = {}] joined the server'.format(member.name, member.id))
+
+        yield from help_message(member)
+        yield from welcome(member)
 
 
 def setup(bot):
