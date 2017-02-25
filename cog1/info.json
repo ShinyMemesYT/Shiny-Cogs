@@ -1,0 +1,8 @@
+{
+    "AUTHOR" : "ShinyMemesYT",
+    "SHORT" : "A few custom cogs for the Red Discord bot.",
+    "DESCRIPTION" : "A few custom cogs for the Red Discord bot.",
+    "DISABLED" : false,
+    "NAME" : "cog1",
+    "INSTALL_MSG" : "Thanks for installing this cog!"
+}
