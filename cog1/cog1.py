@@ -9,8 +9,8 @@ class Mycog:
     @commands.command()
     async def punch(self, user : discord.Member):
         await self.bot.say("ONE PUNCH! And " + user.mention + " is out! ლ(ಠ益ಠლ)")
-
-    if discord.on_member_join(member):
+        
+    async def on_member_join(member):
         await self.bot.say("Hey there!")
 
 def setup(bot):
