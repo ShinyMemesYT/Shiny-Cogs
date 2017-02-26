@@ -11,7 +11,7 @@ class Mycog:
         await self.bot.say("ONE PUNCH! And " + user.mention + " is out! ლ(ಠ益ಠლ)")
 
     if discord.on_member_join(member):
-        print("User joined!")
+        await self.bot.say("Hey there!")
 
 def setup(bot):
     bot.add_cog(Mycog(bot))
