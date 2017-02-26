@@ -14,4 +14,4 @@ class Cog1:
     add_roles(member, "Members")
 
 def setup(bot):
-    bot.add_cog(Mycog(bot))
+    bot.add_cog(Cog1(bot))
