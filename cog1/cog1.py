@@ -2,7 +2,7 @@ import discord
 import asyncio
 from discord.ext import commands
 
-class Mycog:
+class Cog1:
     def __init__(self, bot):
         self.bot = bot
 
